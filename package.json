@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-sep-23",
+  "version": "1.0.7",
+  "description": "NodeJS September 2023",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "uNique",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
