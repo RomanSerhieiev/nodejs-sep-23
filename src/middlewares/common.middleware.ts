@@ -1,9 +1,21 @@
 import { NextFunction, Request, Response } from "express";
+import { ObjectSchema } from "joi";
 import { isObjectIdOrHexString } from "mongoose";
 
 import { ApiError } from "../errors/api.error";
 
 class CommonMiddleware {
+  public isBodyValid(schema: ObjectSchema) {
+    return async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        req.body = await schema.validateAsync(req.body);
+        next();
+      } catch (e) {
+        next(e);
+      }
+    };
+  }
+
   public isIdValid(req: Request, res: Response, next: NextFunction) {
     try {
       const id = req.params.userId;

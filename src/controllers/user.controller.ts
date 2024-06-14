@@ -30,7 +30,6 @@ class UserController {
     try {
       const userId = req.params.userId;
       const receivedUser = await userService.getById(userId);
-
       res.json(receivedUser);
     } catch (e) {
       next(e);
